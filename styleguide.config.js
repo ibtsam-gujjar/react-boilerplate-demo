@@ -1,0 +1,58 @@
+module.exports = {
+  components: ['app/components/**/[A-Z]*.js'],
+  ignore: [
+    'app/components/**/tests/[a-z]*.js',
+    'app/components/A/index.js',
+    'app/components/H1/index.js',
+    'app/components/H2/index.js',
+    'app/components/LoadingIndicator/Circle.js',
+    'app/components/Button/tests/A.test.js',
+    'app/components/Button/A.js',
+    'app/components/Button/StyledButton.js',
+    'app/components/Button/Wrapper.js',
+    'app/components/Button/tests/StyledButton.test.js',
+    'app/components/Button/tests/Wrapper.test.js',
+    'app/components/Footer/Wrapper.js',
+    'app/components/Footer/tests/Wrapper.test.js',
+    'app/components/Header/A.js',
+    'app/components/Header/HeaderLink.js',
+    'app/components/Header/Img.js',
+    'app/components/Header/NavBar.js',
+    'app/components/Header/tests/A.test.js',
+    'app/components/Header/tests/Img.test.js',
+    'app/components/List/Ul.js',
+    'app/components/List/Wrapper.js',
+    'app/components/List/tests/Wrapper.test.js',
+    'app/components/ListItem/Item.js',
+    'app/components/List/tests/Ul.test.js',
+    'app/components/ListItem/tests/Item.test.js',
+    'app/components/ListItem/Wrapper.js',
+    'app/components/ListItem/tests/Wrapper.test.js',
+    'app/components/LoadingIndicator/Wrapper.js',
+    'app/components/LoadingIndicator/tests/Circle.test.js',
+    'app/components/LoadingIndicator/tests/Wrapper.test.js',
+    'app/components/Toggle/Select.js',
+    'app/components/Toggle/tests/Select.test.js',
+  ],
+  defaultExample: true,
+  title: 'Styleguidist',
+  getExampleFilename(componentPath) {
+    return componentPath.replace(/\.js?$/, '.md');
+  },
+  // webpackConfig: './internals/webpack/webpack.prod.babel.js',
+  webpackConfig: {
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+        {
+          test: /\.css$/,
+          loader: 'style-loader!css-loader',
+        },
+      ],
+    },
+  },
+};
